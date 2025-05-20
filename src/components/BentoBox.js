@@ -10,6 +10,9 @@ import grad_cap from '../images/grad_cap.svg';
 import cartoon from '../images/cartoon.svg';
 import resgit from '../images/resgit.svg';
 import piano from '../images/piano.svg';
+import earth from '../images/earth.svg';
+import background from '../images/background.svg';
+import mars from '../images/mars.svg';
 
 import CTAButton from './CTAButton';
 import Button from './Button';
@@ -18,7 +21,19 @@ import LinkedList from './LinkedList';
 
 function BentoBox() {
     return (
-        <div className="bg-gray-500 p-10 flex flex-col justify-center items-center gap-10">
+        <div className="relative overflow-hidden bg-deepnavy p-10 flex flex-col justify-center items-center gap-10">
+            <img src={background} className={"absolute top-[-300px] right-[-300px] w-5/6"}/>
+            <motion.img
+                    src={earth}
+                    alt="logo"
+                    className="absolute top-40 right-[-280px] max-w-none pointer-events-none"
+                    animate={{ rotate: 360 }}
+                    transition={{
+                        repeat: Infinity,
+                        duration: 60,
+                        ease: "linear"
+                    }}
+                />
             <motion.div
                 initial={{ opacity: 0}}
                 animate={{
@@ -30,17 +45,17 @@ function BentoBox() {
                     scale: 1.04,
                     transition: { duration: 0.1 },
                 }}
-                className="w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
+                className="w-full max-w-[1000px] p-10 rounded-2xl flex flex-col md:flex-row sm:flex-row justify-center items-center gap-10 bg-white drop-shadow-xl">
                 <img src={profile_image} alt="profile picture"
-                     className={"w-[300px] rounded-2xl object-cover object-center"}/>
+                     className={"w-[200px] sm:w-[250px] md:w-[300px] rounded-2xl object-cover object-center"}/>
                 <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
-                    <h1 className="text-3xl">
+                    <h1 className="text-2xl sm:text-3xl">
                         Hello, I'm
                     </h1>
-                    <h1 className="text-3xl font-bold">
+                    <h1 className="text-2xl sm:text-3xl font-bold">
                         Jeremiah Lillion
                     </h1>
-                    <h1 className="text-3xl">
+                    <h1 className="text-2xl sm:text-3xl">
                         Computer Science student at UCI
                     </h1>
                     <div className="pt-4 rounded-2xl gap-4 flex justify-left items-left">
@@ -71,7 +86,7 @@ function BentoBox() {
                         transition: { duration: 0.1 },
                     }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-1/2 py-10 rounded-2xl flex justify-center items-start gap-10 bg-white drop-shadow-xl">
+                    className="w-1/2 py-10 rounded-2xl flex justify-center items-start gap-10 bg-white drop-shadow-xl z-10">
                     <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
                         <img src={award} alt="logo" className={"w-10"}/>
                         <h1 className="text-3xl align-top">
@@ -82,6 +97,9 @@ function BentoBox() {
                             <br/>
                             <br/>
                             Regents Scholarship (UCI)
+                            <br/>
+                            UCIAA Book Scholarship (UCI)
+                            <br/>
                             <br/>
                             President’s & Ann Ruff Memorial Scholarship (CCCC)
                         </p>
@@ -121,7 +139,18 @@ function BentoBox() {
                 </motion.div>
             </div>
 
-
+            <img src={background} className={"absolute top-[500px] left-[-300px] w-5/6 pointer-events-none"}/>
+            <motion.img
+                src={mars}
+                alt="logo"
+                className="absolute top-200 left-[-280px] max-w-none pointer-events-none"
+                animate={{ rotate: 360 }}
+                transition={{
+                    repeat: Infinity,
+                    duration: 60,
+                    ease: "linear"
+                }}
+            />
             <motion.div
                 initial={{ opacity: 0, scale: 0.6}}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -140,7 +169,7 @@ function BentoBox() {
                     <p className={"text-xl"}>I am a third-year <strong>Computer Science</strong> student at <strong>UC Irvine</strong> with an Associate of
                         Science in <strong>Mathematics</strong> and three (3) other A.A degrees from
                         <strong> Cerro Coso Community College.</strong> My journey includes participating in the
-                        <strong> NASA</strong> Community College Aerospace Scholars (NCAS) program and being part of the winning team in the
+                        <strong> NASA</strong> Community College Aerospace Scholars (NCAS) program and being a member of the winning team in the
                         Spring 2024 <strong>NASA</strong> L'SPACE NPWEE national competition. Currently, I am focused
                         on pursuing research opportunities at <strong>UCI</strong> to deepen my understanding of Computer Science
                         and contribute to impactful, real-world projects that advance technology and benefit society.
