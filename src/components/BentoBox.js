@@ -35,45 +35,46 @@ function BentoBox() {
                     }}
                 />
             <motion.div
-                initial={{ opacity: 0}}
+                initial={{ opacity: 0 }}
                 animate={{
                     opacity: 1,
                     transition: { duration: 0.8 }
                 }}
-
                 whileHover={{
                     scale: 1.04,
                     transition: { duration: 0.1 },
                 }}
-                className="w-full max-w-[1000px] p-10 rounded-2xl flex flex-col md:flex-row sm:flex-row justify-center items-center gap-10 bg-white drop-shadow-xl">
-                <img src={profile_image} alt="profile picture"
-                     className={"w-[200px] sm:w-[250px] md:w-[300px] rounded-2xl object-cover object-center"}/>
-                <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
-                    <h1 className="text-2xl sm:text-3xl">
-                        Hello, I'm
-                    </h1>
-                    <h1 className="text-2xl sm:text-3xl font-bold">
-                        Jeremiah Lillion
-                    </h1>
-                    <h1 className="text-2xl sm:text-3xl">
-                        Computer Science student at UCI
-                    </h1>
-                    <div className="pt-4 rounded-2xl gap-4 flex justify-left items-left">
+                className="w-full max-w-[350px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[1000px] p-4 sm:p-6 md:p-10 rounded-2xl flex flex-col md:flex-row sm:flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 bg-white drop-shadow-xl z-10"
+            >
+                <img
+                    src={profile_image}
+                    alt="profile picture"
+                    className="w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] rounded-2xl object-cover object-center"
+                />
+
+                <div className="p-4 sm:p-6 md:p-10 rounded-2xl gap-2 flex flex-col justify-center items-start text-center">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl">Hello, I'm</h1>
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">Jeremiah Lillion</h1>
+                    <h1 className="text-xl sm:text-2xl md:text-3xl">Computer Science student at UCI</h1>
+
+                    <div className="pt-3 sm:pt-4 gap-2 sm:gap-4 flex flex-col sm:flex-row justify-start items-center sm:items-start">
                         <Link to="/resume">
-                            <Button content={"View Resume"}/>
+                            <Button content={"View Resume"} />
                         </Link>
-                        <CTAButton content={"Contact Me"} link={""}/>
+                        <CTAButton content={"Contact Me"} link={""} />
                     </div>
-                    <div className="pt-4 rounded-2xl gap-4 flex justify-left items-left">
-                        <Icon content={github} link={"https://github.com/Barwolf"}/>
-                        <Icon content={linkedin} link={"https://www.linkedin.com/in/jeremiah-lillion/"}/>
+
+                    <div className="pt-3 sm:pt-4 gap-2 sm:gap-4 flex justify-center sm:justify-start items-center">
+                        <Icon content={github} link={"https://github.com/Barwolf"} />
+                        <Icon content={linkedin} link={"https://www.linkedin.com/in/jeremiah-lillion/"} />
                     </div>
                 </div>
             </motion.div>
 
-            <div className="w-[1000px] rounded-2xl gap-6 flex flex-row justify-center items-left">
 
-                <motion.div
+            <div className="max-w-[1000px] rounded-2xl gap-6 flex sm:flex-row flex-col justify-center items-stretch z-10">
+
+            <motion.div
                     initial={{ opacity: 0, scale: 0.6}}
                     animate={{
                         opacity: 1,
@@ -86,7 +87,7 @@ function BentoBox() {
                         transition: { duration: 0.1 },
                     }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-1/2 py-10 rounded-2xl flex justify-center items-start gap-10 bg-white drop-shadow-xl z-10">
+                    className="w-full sm:w-1/2  py-10 rounded-2xl flex justify-center items-start gap-10 bg-white drop-shadow-xl z-10">
                     <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
                         <img src={award} alt="logo" className={"w-10"}/>
                         <h1 className="text-3xl align-top">
@@ -119,7 +120,7 @@ function BentoBox() {
                         transition: { duration: 0.1 },
                     }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-1/2 py-10 rounded-2xl flex justify-center items-start bg-white drop-shadow-xl">
+                    className="w-full sm:w-1/2 py-10 rounded-2xl flex justify-center items-start bg-white drop-shadow-xl">
                     <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
                         <img src={grad_cap} alt="logo" className={"w-16 pb-4"}/>
                         <h1 className="text-3xl">
@@ -139,7 +140,7 @@ function BentoBox() {
                 </motion.div>
             </div>
 
-            <img src={background} className={"absolute top-[500px] left-[-300px] w-5/6 pointer-events-none"}/>
+            <img src={background} className={"absolute top-[500px] left-[-300px] w-5/6 pointer-events-none z-0"}/>
             <motion.img
                 src={mars}
                 alt="logo"
@@ -151,6 +152,7 @@ function BentoBox() {
                     ease: "linear"
                 }}
             />
+
             <motion.div
                 initial={{ opacity: 0, scale: 0.6}}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -162,7 +164,7 @@ function BentoBox() {
                     transition: { duration: 0.1 },
                 }}
 
-                className="w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
+                className="w-full sm:w-[1000px] sm:p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
 
                 <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
                     <h1 className={"text-3xl"}>About Me</h1>
@@ -177,7 +179,7 @@ function BentoBox() {
                 </div>
             </motion.div>
 
-            <div className="w-[1000px] h-screen rounded-2xl flex justify-center items-center gap-10">
+            <div className="w-full sm:w-[1000px] sm:flex-row flex-col rounded-2xl flex justify-center items-center gap-10">
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.6}}
@@ -190,7 +192,7 @@ function BentoBox() {
                         transition: { duration: 0.1 },
                     }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-1/2 h-full py-10 rounded-2xl flex justify-center items-start gap-10 bg-white drop-shadow-xl">
+                    className="w-full sm:w-1/2 h-full py-10 rounded-2xl flex justify-center items-start gap-10 bg-white drop-shadow-xl">
                     <div className="p-5 rounded-2xl gap-2 flex flex-col justify-center items-center">
                         <h1 className="text-3xl align-top pb-4">
                             My Projects
@@ -199,7 +201,7 @@ function BentoBox() {
                     </div>
                 </motion.div>
 
-                <div className="w-1/2 py-5 h-screen rounded-2xl flex flex-col justify-center items-center gap-10">
+                <div className="w-full sm:w-1/2 h-full flex flex-col justify-between gap-5">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.6}}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -209,7 +211,7 @@ function BentoBox() {
                             scale: 1.04,
                             transition: { duration: 0.1 },
                         }}
-                        className="w-full h-1/2 py-10 rounded-2xl flex self-start justify-center items-start bg-white drop-shadow-xl">
+                        className="w-full flex-1 py-10 rounded-2xl flex self-start justify-center items-start bg-white drop-shadow-xl">
                         <div className="px-5 py-2 rounded-2xl gap-4 flex flex-col justify-center items-center">
                             <img src={resgit} alt="logo" className={"w-4/5"}/>
                             <h1 className="text-3xl align-top">
@@ -228,7 +230,7 @@ function BentoBox() {
                             scale: 1.04,
                             transition: { duration: 0.1 },
                         }}
-                        className="w-full h-1/2 py-10 rounded-2xl flex self-start justify-center items-start bg-white drop-shadow-xl">
+                        className="w-full flex-1 py-10 rounded-2xl flex self-start justify-center items-start bg-white drop-shadow-xl">
                         <div className="px-5 py-2 rounded-2xl gap-4 flex flex-col justify-center items-center">
                             <img src={piano} alt="logo" className={"w-3/5"}/>
                             <h1 className="text-3xl align-top">
@@ -253,7 +255,7 @@ function BentoBox() {
                     transition: { duration: 0.1 },
                 }}
 
-                className="w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
+                className="w-full sm:w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
 
                 <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-center">
                     <h1 className={"text-xl mb-6"}>Want to learn more about my <strong>projects</strong> and what I

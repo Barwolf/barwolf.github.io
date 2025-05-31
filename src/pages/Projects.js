@@ -12,7 +12,7 @@ import resgit from '../images/resgit.svg';
 function Projects() {
     return (
 
-        <div className="bg-gray-500 p-10 flex flex-col justify-center items-center gap-10">
+        <div className="bg-deepnavy p-10 flex flex-col justify-center items-center gap-10">
             <motion.div
                 initial={{ opacity: 0}}
                 animate={{
