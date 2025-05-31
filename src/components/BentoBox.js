@@ -52,12 +52,12 @@ function BentoBox() {
                     className="w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] rounded-2xl object-cover object-center"
                 />
 
-                <div className="p-4 sm:p-6 md:p-10 rounded-2xl gap-2 flex flex-col justify-center items-start text-center">
+                <div className="p-4 sm:p-6 md:p-10 rounded-2xl gap-2 flex flex-col justify-center sm:items-start text-center">
                     <h1 className="text-xl sm:text-2xl md:text-3xl">Hello, I'm</h1>
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">Jeremiah Lillion</h1>
                     <h1 className="text-xl sm:text-2xl md:text-3xl">Computer Science student at UCI</h1>
 
-                    <div className="pt-3 sm:pt-4 gap-2 sm:gap-4 flex flex-col sm:flex-row justify-start items-center sm:items-start">
+                    <div className="sm:m-0 m-auto pt-3 sm:pt-4 gap-2 sm:gap-4 flex flex-col sm:flex-row justify-start items-center sm:items-start">
                         <Link to="/resume">
                             <Button content={"View Resume"} />
                         </Link>
@@ -89,7 +89,7 @@ function BentoBox() {
                     whileTap={{ scale: 0.9 }}
                     className="w-full sm:w-1/2  py-10 rounded-2xl flex justify-center items-start gap-10 bg-white drop-shadow-xl z-10">
                     <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
-                        <img src={award} alt="logo" className={"w-10"}/>
+                        <img src={award} alt="logo" className={"w-10 sm:m-0 m-auto"}/>
                         <h1 className="text-3xl align-top">
                             Achievements
                         </h1>
@@ -122,7 +122,7 @@ function BentoBox() {
                     whileTap={{ scale: 0.9 }}
                     className="w-full sm:w-1/2 py-10 rounded-2xl flex justify-center items-start bg-white drop-shadow-xl">
                     <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
-                        <img src={grad_cap} alt="logo" className={"w-16 pb-4"}/>
+                        <img src={grad_cap} alt="logo" className={"w-16 pb-4 sm:m-0 m-auto"}/>
                         <h1 className="text-3xl">
                             Education
                         </h1>

@@ -24,7 +24,7 @@ function Projects() {
                     scale: 1.04,
                     transition: { duration: 0.1 },
                 }}
-                className="w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
+                className="w-full sm:w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
 
                 <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
                     <Link to="/">
@@ -44,7 +44,7 @@ function Projects() {
                     scale: 1.04,
                     transition: { duration: 0.1 },
                 }}
-                className="w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
+                className="w-full sm:w-[1000px] p-10 rounded-2xl flex justify-center items-center gap-10 bg-white drop-shadow-xl">
 
                 <div className="p-10 rounded-2xl gap-2 flex flex-col justify-center items-left">
                     <img src={resgit} alt="profile picture"

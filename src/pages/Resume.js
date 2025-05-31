@@ -9,7 +9,7 @@ function Resume() {
         <div className={"w-full flex flex-col justify-center items-center p-20"}>
             <div>
                 <h1 className={"text-2xl"}>Jeremiah Lillion</h1>
-                <div className={"flex flex-col justify-center w-[1000px] gap-2"}>
+                <div className={"flex flex-col justify-center w-full sm:w-[1000px] gap-2"}>
 
                     <h1 className={"font-bold text-2xl"}>Education</h1>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700"/>
@@ -53,7 +53,7 @@ function Resume() {
             </div>
 
             <div>
-                <div className={"mt-8 flex flex-col justify-center w-[1000px] gap-2"}>
+                <div className={"mt-8 flex flex-col justify-center w-full sm:w-[1000px] gap-2"}>
                     <h1 className={"font-bold text-2xl"}>PROFESSIONAL EDUCATIONAL EXPERIENCES</h1>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700"/>
 
@@ -90,7 +90,7 @@ function Resume() {
             </div>
 
             <div>
-                <div className={"mt-8 flex flex-col justify-center w-[1000px] gap-2"}>
+                <div className={"mt-8 flex flex-col justify-center w-full sm:w-[1000px] gap-2"}>
                     <h1 className={"font-bold text-2xl"}>PERSONAL PROJECTS</h1>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700"/>
 
@@ -118,7 +118,7 @@ function Resume() {
             </div>
 
             <div>
-                <div className={"mt-8 flex flex-col justify-center w-[1000px] gap-2"}>
+                <div className={"mt-8 flex flex-col justify-center w-full sm:w-[1000px] gap-2"}>
                     <h1 className={"font-bold text-2xl"}>WORK EXPERIENCE</h1>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700"/>
 
@@ -157,7 +157,7 @@ function Resume() {
             </div>
 
             <div>
-                <div className={"mt-8 flex flex-col justify-center w-[1000px] gap-2"}>
+                <div className={"mt-8 flex flex-col justify-center w-full sm:w-[1000px] gap-2"}>
                     <h1 className={"font-bold text-2xl"}>ADDITIONAL</h1>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700"/>
 
