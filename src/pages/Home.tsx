@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "motion/react";
 import { ArrowDown, Brain, Layers, Users, Mail, ExternalLink, Trophy, Star, Award } from "lucide-react";
 
@@ -72,7 +73,12 @@ const skills = {
   Coursework: ["Data Structures & Algorithms", "Linear Algebra", "Discrete Mathematics", "Differential Equations"],
 };
 
-const degrees = [
+type Degree = { degree: string; school: string; years: string; detail: string } & (
+  | { logo: string; icon?: never }
+  | { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; logo?: never }
+);
+
+const degrees: Degree[] = [
   {
     logo: "/logos/uci_logo.png",
     degree: "Bachelor of Science in Computer Science",
