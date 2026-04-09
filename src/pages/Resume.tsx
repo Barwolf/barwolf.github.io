@@ -24,6 +24,15 @@ function FadeIn({
 
 const experience = [
   {
+    org: "Capital Group",
+    role: "Solutions Engineer",
+    location: "Irvine, CA",
+    dates: "Sep 2026 · Incoming",
+    bullets: [
+      "Incoming Solutions Engineer.",
+    ],
+  },
+  {
     org: "University of California, Irvine — Computer Science Research",
     role: "Undergrad Researcher · with Alberto Krone-Martins",
     location: "Irvine, CA",

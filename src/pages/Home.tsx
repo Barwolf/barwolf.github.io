@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowDown, Brain, Layers, Users, Mail, GraduationCap, BookOpen, ExternalLink, Trophy, Star, Award } from "lucide-react";
+import { ArrowDown, Brain, Layers, Users, Mail, ExternalLink, Trophy, Star, Award } from "lucide-react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -74,39 +74,35 @@ const skills = {
 
 const degrees = [
   {
-    icon: GraduationCap,
+    logo: "/logos/uci_logo.png",
     degree: "Bachelor of Science in Computer Science",
     school: "University of California, Irvine",
     years: "Expected June 2026",
     detail: "Regents Scholar · Campuswide Honors Collegium · ICS Honors · Tau Sigma · Dean's List",
   },
   {
-    icon: BookOpen,
-
+    logo: "/logos/cerrocoso_logo.png",
     degree: "Associate of Science — Mathematics (A.S.-T)",
     school: "Cerro Coso Community College",
     years: "Dec 2023",
     detail: "Cumulative GPA: 4.0/4.0 · Phi Theta Kappa · Dean's List (6×) · Commencement Speaker",
   },
   {
-    icon: BookOpen,
-
+    logo: "/logos/cerrocoso_logo.png",
     degree: "Associate of Arts — Liberal Arts: Math & Science",
     school: "Cerro Coso Community College",
     years: "Dec 2023",
     detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
   },
   {
-    icon: BookOpen,
-
+    logo: "/logos/cerrocoso_logo.png",
     degree: "Associate of Arts — Liberal Arts: Social Science",
     school: "Cerro Coso Community College",
     years: "Dec 2023",
     detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
   },
   {
-    icon: BookOpen,
-
+    logo: "/logos/cerrocoso_logo.png",
     degree: "Associate of Arts — Liberal Arts: Arts & Humanities",
     school: "Cerro Coso Community College",
     years: "Dec 2023",
@@ -429,8 +425,12 @@ function Education() {
                   transition={{ duration: 0.2 }}
                   className="bg-card border border-border p-6 flex items-start gap-4 cursor-default"
                 >
-                  <div className="w-9 h-9 bg-muted rounded flex items-center justify-center flex-shrink-0">
-                    <d.icon className="w-4 h-4 text-muted-foreground" />
+                  <div className="w-9 h-9 bg-muted rounded flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    {"logo" in d ? (
+                      <img src={d.logo} alt={d.school} className="w-full h-full object-cover" />
+                    ) : (
+                      <d.icon className="w-4 h-4 text-muted-foreground" />
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-start mb-1">
