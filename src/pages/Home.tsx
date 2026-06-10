@@ -1,39 +1,9 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ArrowDown, Brain, Layers, Users, Mail, ExternalLink, Trophy, Star, Award } from "lucide-react";
+import { BookOpen } from "lucide-react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
-
-const projects = [
-  {
-    title: "Algorhythm",
-    description:
-      "A gamified mobile DSA learning app — \"Duolingo for Data Structures & Algorithms\" — with XP, hearts, streaks, and a JSON-driven lesson engine backed by Supabase.",
-    tags: ["React Native", "Expo", "Supabase", "Zustand", "TypeScript"],
-    href: "https://github.com/Barwolf",
-  },
-  {
-    title: "ICS Academic Novelty Engine",
-    description:
-      "Semantic search engine that evaluates thesis originality by computing cosine distance against a university paper corpus using FAISS and OpenAI embeddings.",
-    tags: ["Python", "FastAPI", "Next.js", "FAISS", "OpenAI API"],
-    href: "https://github.com/Barwolf",
-  },
-  {
-    title: "FitCheck",
-    description:
-      "Full-stack IoT smart wardrobe using an ESP32 device, Firebase, and MQTT for real-time two-way communication and instant wardrobe status synchronization.",
-    tags: ["React", "Vite", "Firebase", "MQTT", "IoT"],
-    href: "https://github.com/Barwolf",
-  },
-  {
-    title: "ResGit",
-    description:
-      "Hackathon (SACHACKS) resume customization tool with modular React components, letting users select and preview tailored resumes in real time.",
-    tags: ["Next.js", "Tailwind", "Python"],
-    href: "https://github.com/Barwolf",
-  },
-];
 
 const achievements = [
   {
@@ -65,13 +35,6 @@ const achievements = [
       "Earned a perfect 4.0 cumulative GPA and Dean's List recognition every semester, alongside the Presidents Outstanding Academic Award and Phi Theta Kappa membership.",
   },
 ];
-
-const skills = {
-  Languages: ["Python", "C/C++", "JavaScript", "HTML/CSS", "SQL", "R"],
-  Frameworks: ["React", "React Native", "Next.js", "Node.js", "Flask", "WordPress"],
-  "Libraries & Tools": ["PyTorch", "Scikit-learn", "NumPy", "FAISS", "Firebase", "Git"],
-  Coursework: ["Data Structures & Algorithms", "Linear Algebra", "Discrete Mathematics", "Differential Equations"],
-};
 
 type Degree = { degree: string; school: string; years: string; detail: string } & (
   | { logo: string; icon?: never }
@@ -193,40 +156,70 @@ function FadeIn({
 
 function Hero() {
   const scrollDown = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("book")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-14">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="max-w-3xl"
-      >
-        <p className="text-sm text-muted-foreground mb-6 tracking-widest uppercase">
-          Software Engineer · CS @ UCI · June 2026
-        </p>
-        <h1 className="mb-6">Building thoughtful digital experiences</h1>
-        <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-          I craft elegant solutions to complex problems, with a focus on clean code, user
-          experience, and meaningful impact.
-        </p>
-        <div className="flex items-center justify-center gap-4">
-          <button
-            onClick={() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })}
-            className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
-          >
-            View My Work
-          </button>
-          <button
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="border border-border px-6 py-3 text-sm font-medium hover:bg-muted transition-colors"
-          >
-            Get In Touch
-          </button>
-        </div>
-      </motion.div>
+    <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 pt-20 relative">
+      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+        
+        {/* Left Column: The Hook & The Movement */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-left"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="px-3 py-1 bg-muted text-xs font-medium tracking-widest uppercase rounded-full">
+              Incoming Solutions Engineer @ Capital Group
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Engineering solutions. <br className="hidden md:block"/>
+            Sharing my story. <br className="hidden md:block"/> 
+          </h1>
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-md">
+            Writing <i>An Educated Guess</i> while working as a Solutions Engineer at Capital Group. Redefining the path no education to the corporate world.
+          </p>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })}
+              className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              The Book
+            </button>
+            <a
+              href="/tech" /* Points to your new page */
+              className="border border-border px-6 py-3 text-sm font-medium hover:bg-muted transition-colors flex items-center gap-2"
+            >
+              Tech Portfolio
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Right Column: Visual Proof (Capital Group Photo) */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative aspect-[4/5] md:aspect-square w-full max-w-md mx-auto"
+        >
+          <div className="w-full h-full bg-muted border border-border overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+            <img 
+              src="/capital_group.jpg" 
+              alt="Jeremiah at Capital Group" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-6 -left-6 bg-card border border-border p-4 shadow-lg">
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Focus</p>
+            <p className="text-sm font-medium mt-1">"Keep Going"</p>
+          </div>
+        </motion.div>
+
+      </div>
+
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -241,168 +234,83 @@ function Hero() {
   );
 }
 
-function About() {
-  const values = [
-    {
-      icon: Brain,
-      title: "AI & Research",
-      description:
-        "I work at the intersection of software and research — building similarity engines with vector embeddings at UCI and applying ML tools like PyTorch and FAISS to real problems.",
-    },
-    {
-      icon: Layers,
-      title: "Full-Stack & Mobile",
-      description:
-        "I ship across the entire stack — from React and Next.js on the web to React Native on mobile and ESP32 IoT devices. If it needs to be built, I can build it.",
-    },
-    {
-      icon: Users,
-      title: "Product & Leadership",
-      description:
-        "As VP of MedTech@UCI and Lead PM on a therapeutic game platform, I bridge engineering and strategy — defining user loops, securing partnerships, and leading teams.",
-    },
-  ];
-
+function Book() {
   return (
-    <section id="about" className="py-32 px-6">
+    <section id="book" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
-        <FadeIn className="text-center mb-16">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">About Me</p>
-          <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            I'm a CS student and researcher at UC Irvine graduating June 2026. I build full-stack
-            apps, mobile experiences, and AI-powered tools — and I care deeply about the craft
-            behind every product I ship.
-          </p>
-        </FadeIn>
+        <FadeIn className="grid md:grid-cols-2 gap-12 items-center">
+          
+          {/* Left: Book Cover Placeholder */}
+          <img 
+          src="/book_cover.jpg" 
+          alt="An Educated Guess Book Cover" 
+          className="relative w-full max-w-sm mx-auto border border-border shadow-2xl rounded-sm" 
+          />
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {values.map((v, i) => (
-            <FadeIn key={v.title} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -4, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
-                transition={{ duration: 0.2 }}
-                className="bg-card border border-border p-8 h-full cursor-default"
-              >
-                <v.icon className="w-5 h-5 mb-5 text-muted-foreground" />
-                <h3 className="mb-3">{v.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{v.description}</p>
-              </motion.div>
-            </FadeIn>
-          ))}
-        </div>
+          {/* Right: The Pitch & Movement */}
+          <div>
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">The Movement</p>
+            <h2 className="text-3xl font-bold mb-6">My story.</h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
+              <p>
+              An <strong><i>Educated Guess</i></strong> is my story of starting from zero. It is a raw look at surviving abuse and a lack of early education.
+              </p>
+              <p>
+              It dismantles the "traditional path" entirely, exploring the mechanics of resilience and what it takes to engineer a future from scratch. 
+              </p>
+            </div>
+            
+            {/* The Email Capture / Waitlist */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input 
+                type="email" 
+                placeholder="Join the waitlist..." 
+                className="bg-card border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary flex-1"
+              />
+              <button className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity">
+                Notify Me
+              </button>
+            </div>
+            <p className="text-xs text-muted-foreground mt-3">
+              Sign up for updates on chapters, cover reveals, and the official release.
+            </p>
+          </div>
+
+        </FadeIn>
       </div>
     </section>
   );
 }
 
-function Work() {
+function Speech() {
   return (
-    <section id="work" className="py-32 px-6">
+    <section id="story" className="py-32 px-6 bg-muted/30">
       <div className="max-w-5xl mx-auto">
         <FadeIn className="text-center mb-16">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">
-            Selected Work
-          </p>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            A collection of projects that showcase my approach to solving real-world problems.
+          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">The Origin</p>
+          <h2 className="text-3xl font-bold mb-6">From Cerro Coso to the Honors Collegium</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            The trajectory wasn't traditional. The intersection of my early experiences and a rigorous academic pursuit is the foundation of the upcoming memoir, <i>An Educated Guess</i>. 
           </p>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((p, i) => (
-            <FadeIn key={p.title} delay={i * 0.08}>
-              <motion.div
-                whileHover={{ y: -4, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
-                transition={{ duration: 0.2 }}
-                className="bg-card border border-border p-8 h-full flex flex-col"
-              >
-                <div className="flex items-start justify-between mb-3 gap-4">
-                  <h3>{p.title}</h3>
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors flex-shrink-0 mt-0.5"
-                    aria-label={`Open ${p.title}`}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
-                  {p.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {p.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-muted text-xs text-muted-foreground rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Skills() {
-  const columns = Object.entries(skills);
-  const left = columns.slice(0, 2);
-  const right = columns.slice(2, 4);
-
-  return (
-    <section className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <FadeIn className="text-center mb-16">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">
-            Skills & Technologies
-          </p>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            A diverse toolkit built through years of hands-on experience and continuous learning.
-          </p>
+        <FadeIn delay={0.2}>
+          <div className="relative w-full max-w-4xl mx-auto aspect-video bg-card border border-border p-2 shadow-xl">
+            <iframe 
+              className="w-full h-full border-0"
+              src="https://www.youtube.com/embed/vAJ-87hdGFQ?start=3287" 
+              title="Cerro Coso Commencement Speech" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="mt-6 text-center">
+            <p className="text-sm text-muted-foreground italic">
+              Delivering the commencement address to the Cerro Coso Class of 2023.
+            </p>
+          </div>
         </FadeIn>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-10">
-            {left.map(([category, tags], i) => (
-              <FadeIn key={category} delay={i * 0.1}>
-                <h4 className="mb-4">{category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-card border border-border text-sm text-muted-foreground rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-          <div className="space-y-10">
-            {right.map(([category, tags], i) => (
-              <FadeIn key={category} delay={i * 0.1}>
-                <h4 className="mb-4">{category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-card border border-border text-sm text-muted-foreground rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -570,9 +478,8 @@ export function Home() {
   return (
     <main>
       <Hero />
-      <About />
-      <Work />
-      <Skills />
+      <Book />
+      <Speech />
       <Education />
       <Achievements />
       <Contact />
