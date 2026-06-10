@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowDown, Brain, Layers, Users, Mail, ExternalLink, Trophy, Star, Award } from "lucide-react";
-import { BookOpen } from "lucide-react";
+import { ArrowDown, Users, Mail, Trophy, Star, Award } from "lucide-react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
