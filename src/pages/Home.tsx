@@ -234,17 +234,25 @@ function Hero() {
 }
 
 function Book() {
+  const [email, setEmail] = React.useState("");
+  const [status, setStatus] = React.useState<"idle" | "submitting" | "done">("idle");
+
+  const handleSubmit = () => {
+    setStatus("submitting");
+    setTimeout(() => setStatus("done"), 1000);
+  };
+
   return (
     <section id="book" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <FadeIn className="grid md:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left: Book Cover */}
           <div className="relative w-full max-w-sm mx-auto">
-            <img 
-              src="/book_cover.jpg" 
-              alt="An Educated Guess Book Cover" 
-              className="relative w-full border border-border shadow-2xl rounded-sm" 
+            <img
+              src="/book_cover.jpg"
+              alt="An Educated Guess Book Cover"
+              className="relative w-full border border-border shadow-2xl rounded-sm"
             />
           </div>
 
@@ -260,16 +268,50 @@ function Book() {
                 It dismantles the "traditional path" entirely, exploring the mechanics of resilience and what it takes to engineer a future from scratch.
               </p>
             </div>
-            
-            {/* Disabled Waitlist / Coming Soon */}
-            <div className="flex flex-col gap-3 mt-4">
-              <div className="bg-muted/40 border border-border px-6 py-3 text-sm font-medium text-muted-foreground inline-flex items-center justify-center w-full sm:w-max cursor-not-allowed">
-                Waitlist Coming Soon
+
+            {status === "done" ? (
+              <div className="bg-muted/40 border border-border px-6 py-4">
+                <p className="text-sm font-medium">You're on the list.</p>
+                <p className="text-xs text-muted-foreground mt-1">We'll be in touch when the book drops.</p>
               </div>
-              <p className="text-xs text-muted-foreground">
-                Stay tuned for updates on chapter previews, the full cover reveal, and the official release.
-              </p>
-            </div>
+            ) : (
+              <div className="flex flex-col gap-3 mt-4">
+                <p className="text-xs text-muted-foreground uppercase tracking-widest">Join the Waitlist</p>
+                {/* Hidden iframe so Mailchimp's response doesn't redirect the page */}
+                <iframe name="mailchimp-hidden" style={{ display: "none" }} title="mailchimp-hidden" />
+                <form
+                  action="https://jeremiahlillion.us3.list-manage.com/subscribe/post?u=2e413a7f498b4d48f8bed957d&id=971759942d&f_id=00a8b6e3f0"
+                  method="post"
+                  target="mailchimp-hidden"
+                  onSubmit={handleSubmit}
+                  className="flex"
+                >
+                  <input
+                    type="email"
+                    name="EMAIL"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    className="flex-1 bg-background border border-border px-4 py-3 text-sm outline-none focus:border-foreground transition-colors placeholder:text-muted-foreground"
+                  />
+                  {/* Mailchimp honeypot — required for spam prevention, do not remove */}
+                  <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
+                    <input type="text" name="b_2e413a7f498b4d48f8bed957d_971759942d" tabIndex={-1} defaultValue="" />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-60"
+                  >
+                    {status === "submitting" ? "..." : "Notify Me"}
+                  </button>
+                </form>
+                <p className="text-xs text-muted-foreground">
+                  Stay tuned for chapter previews, the full cover reveal, and the release date.
+                </p>
+              </div>
+            )}
           </div>
 
         </FadeIn>
