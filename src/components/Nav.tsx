@@ -1,9 +1,10 @@
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
-// Updated to reflect your new page structure
 const links = [
   { label: "The Book", href: "/#book" },
-  { label: "Tech", href: "/tech" },
+  { label: "Engineering", href: "/tech" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -11,14 +12,17 @@ const links = [
 export function Nav() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // If it's a standard page link (like /tech or /resume), let React Router handle it normally
-    if (!href.startsWith("/#")) return;
+    if (!href.startsWith("/#")) {
+      setIsOpen(false); // Close menu for normal page links
+      return;
+    }
 
-    // If it's an anchor link (like /#book or /#contact), handle the scroll
     e.preventDefault();
     const id = href.slice(2);
+    setIsOpen(false); // Close menu when anchor is clicked
     
     if (location.pathname !== "/") {
       navigate("/");
@@ -31,15 +35,20 @@ export function Nav() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        {/* Changed from "Portfolio" to your name for a stronger personal brand */}
-        <Link to="/" className="text-sm font-bold tracking-wide text-foreground uppercase">
+        {/* Logo */}
+        <Link 
+          to="/" 
+          onClick={() => setIsOpen(false)} 
+          className="text-sm font-bold tracking-wide text-foreground uppercase"
+        >
           Jeremiah Lillion
         </Link>
-        <ul className="flex items-center gap-8">
+
+        {/* Desktop Menu (Hidden on mobile, flex on medium screens and up) */}
+        <ul className="hidden md:flex items-center gap-8">
           {links.map((link) => {
-            // Determine if the current link is active
             const isActive = 
               (link.href.startsWith("/#") && location.pathname === "/" && location.hash === link.href.slice(1)) ||
               (location.pathname === link.href);
@@ -70,7 +79,55 @@ export function Nav() {
             );
           })}
         </ul>
+
+        {/* Mobile Hamburger Toggle */}
+        <button 
+          className="md:hidden text-foreground p-1" 
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </nav>
+
+      {/* Mobile Dropdown Menu */}
+      {isOpen && (
+        <div className="md:hidden border-t border-border bg-background shadow-lg absolute w-full left-0">
+          <ul className="flex flex-col py-4 px-6 gap-4">
+            {links.map((link) => {
+              const isActive = 
+                (link.href.startsWith("/#") && location.pathname === "/" && location.hash === link.href.slice(1)) ||
+                (location.pathname === link.href);
+
+              return (
+                <li key={link.label}>
+                  {link.href.startsWith("/#") ? (
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleAnchor(e, link.href)}
+                      className={`block text-sm transition-colors ${
+                        isActive ? "text-foreground font-medium" : "text-muted-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`block text-sm transition-colors ${
+                        isActive ? "text-foreground font-medium" : "text-muted-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </header>
   );
 }
