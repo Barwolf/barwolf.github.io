@@ -239,40 +239,37 @@ function Book() {
       <div className="max-w-5xl mx-auto">
         <FadeIn className="grid md:grid-cols-2 gap-12 items-center">
           
-          {/* Left: Book Cover Placeholder */}
-          <img 
-          src="/book_cover.jpg" 
-          alt="An Educated Guess Book Cover" 
-          className="relative w-full max-w-sm mx-auto border border-border shadow-2xl rounded-sm" 
-          />
+          {/* Left: Book Cover */}
+          <div className="relative w-full max-w-sm mx-auto">
+            <img 
+              src="/book_cover.jpg" 
+              alt="An Educated Guess Book Cover" 
+              className="relative w-full border border-border shadow-2xl rounded-sm" 
+            />
+          </div>
 
           {/* Right: The Pitch & Movement */}
           <div>
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">The Movement</p>
-            <h2 className="text-3xl font-bold mb-6">My story.</h2>
+            <h2 className="text-3xl font-bold mb-6">Redefining the blueprint.</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
               <p>
-              An <strong><i>Educated Guess</i></strong> is my story of starting from zero. It is a raw look at surviving abuse and a lack of early education.
+                <i>An Educated Guess</i> is my story of starting from zero. It is a raw look at surviving abuse and a lack of early education, to eventually earning a degree from UCI and landing at Capital Group.
               </p>
               <p>
-              It dismantles the "traditional path" entirely, exploring the mechanics of resilience and what it takes to engineer a future from scratch. 
+                It dismantles the "traditional path" entirely, exploring the mechanics of resilience and what it takes to engineer a future from scratch.
               </p>
             </div>
             
-            {/* The Email Capture / Waitlist */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input 
-                type="email" 
-                placeholder="Join the waitlist..." 
-                className="bg-card border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary flex-1"
-              />
-              <button className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity">
-                Notify Me
-              </button>
+            {/* Disabled Waitlist / Coming Soon */}
+            <div className="flex flex-col gap-3 mt-4">
+              <div className="bg-muted/40 border border-border px-6 py-3 text-sm font-medium text-muted-foreground inline-flex items-center justify-center w-full sm:w-max cursor-not-allowed">
+                Waitlist Coming Soon
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Stay tuned for updates on chapter previews, the full cover reveal, and the official release.
+              </p>
             </div>
-            <p className="text-xs text-muted-foreground mt-3">
-              Sign up for updates on chapters, cover reveals, and the official release.
-            </p>
           </div>
 
         </FadeIn>
