@@ -179,7 +179,7 @@ function Hero() {
             Sharing my story. <br className="hidden md:block"/> 
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-md">
-            Writing <i>An Educated Guess</i> while working as a Solutions Engineer at Capital Group. Redefining the path no education to the corporate world.
+            Writing <i>An Educated Guess</i> while working as a Solutions Engineer at Capital Group. Redefining the path of no education to the corporate world.
           </p>
           <div className="flex items-center gap-4">
             <button
@@ -287,7 +287,7 @@ function Speech() {
       <div className="max-w-5xl mx-auto">
         <FadeIn className="text-center mb-16">
           <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">The Origin</p>
-          <h2 className="text-3xl font-bold mb-6">From Cerro Coso to the Honors Collegium</h2>
+          <h2 className="text-3xl font-bold mb-6">From no education to the corporate world</h2>
           <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
             The trajectory wasn't traditional. The intersection of my early experiences and a rigorous academic pursuit is the foundation of the upcoming memoir, <i>An Educated Guess</i>. 
           </p>
