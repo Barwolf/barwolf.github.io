@@ -148,7 +148,7 @@ export function Resume() {
               <h1 className="text-3xl font-bold mb-1">Jeremiah Lillion</h1>
               <p className="text-muted-foreground">Software Engineer & CS Researcher</p>
             </div>
-            <button className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity flex-shrink-0">
+            <button className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium rounded-full hover:opacity-90 transition-opacity flex-shrink-0">
               <Download className="w-4 h-4" />
               Download PDF
             </button>
@@ -309,6 +309,25 @@ export function Resume() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* Certifications */}
+        <FadeIn delay={0.45} className="mb-12">
+          <h2 className="text-xl font-semibold mb-6 pb-3 border-b border-border">Certifications</h2>
+          <div className="space-y-3">
+            {[
+              { name: "Introduction to Model Context Protocol", issuer: "Anthropic", issued: "Mar 2026" },
+              { name: "Claude Code in Action", issuer: "Anthropic", issued: "Mar 2026" },
+            ].map((c) => (
+              <div key={c.name} className="flex justify-between items-baseline">
+                <div>
+                  <span className="text-sm font-medium text-foreground">{c.name}</span>
+                  <span className="text-sm text-muted-foreground"> · {c.issuer}</span>
+                </div>
+                <span className="text-sm text-muted-foreground whitespace-nowrap ml-4">{c.issued}</span>
               </div>
             ))}
           </div>

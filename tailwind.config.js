@@ -19,6 +19,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        accent: {
+          warm: "hsl(var(--accent-warm))",
+          gold: "hsl(var(--accent-gold))",
+        },
       },
       fontFamily: {
         serif: ["Playfair Display", "Georgia", "serif"],

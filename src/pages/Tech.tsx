@@ -35,6 +35,57 @@ const projects = [
   },
 ];
 
+const degrees = [
+  {
+    logo: "/logos/uci_logo.png",
+    degree: "Bachelor of Science in Computer Science",
+    school: "University of California, Irvine",
+    years: "Expected June 2026",
+    detail: "Regents Scholar · Campuswide Honors Collegium · ICS Honors · Tau Sigma · Dean's List",
+  },
+  {
+    logo: "/logos/cerrocoso_logo.png",
+    degree: "Associate of Science — Mathematics (A.S.-T)",
+    school: "Cerro Coso Community College",
+    years: "Dec 2023",
+    detail: "Cumulative GPA: 4.0/4.0 · Phi Theta Kappa · Dean's List (6×) · Commencement Speaker",
+  },
+  {
+    logo: "/logos/cerrocoso_logo.png",
+    degree: "Associate of Arts — Liberal Arts: Math & Science",
+    school: "Cerro Coso Community College",
+    years: "Dec 2023",
+    detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
+  },
+  {
+    logo: "/logos/cerrocoso_logo.png",
+    degree: "Associate of Arts — Liberal Arts: Social Science",
+    school: "Cerro Coso Community College",
+    years: "Dec 2023",
+    detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
+  },
+  {
+    logo: "/logos/cerrocoso_logo.png",
+    degree: "Associate of Arts — Liberal Arts: Arts & Humanities",
+    school: "Cerro Coso Community College",
+    years: "Dec 2023",
+    detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
+  },
+];
+
+const certs = [
+  {
+    name: "Introduction to Model Context Protocol",
+    issuer: "Anthropic",
+    issued: "Mar 2026",
+  },
+  {
+    name: "Claude Code in Action",
+    issuer: "Anthropic",
+    issued: "Mar 2026",
+  },
+];
+
 const skills = {
   Languages: ["Python", "C/C++", "JavaScript", "HTML/CSS", "SQL", "R"],
   Frameworks: ["React", "React Native", "Next.js", "Node.js", "Flask", "WordPress"],
@@ -147,11 +198,13 @@ function About() {
           {values.map((v, i) => (
             <FadeIn key={v.title} delay={i * 0.1}>
               <motion.div
-                whileHover={{ y: -4, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
+                whileHover={{ y: -8, boxShadow: "0 16px 40px rgba(0,0,0,0.12)" }}
                 transition={{ duration: 0.2 }}
-                className="bg-card border border-border p-8 h-full cursor-default"
+                className="bg-card border border-border p-8 h-full cursor-default rounded-2xl"
               >
-                <v.icon className="w-5 h-5 mb-5 text-muted-foreground" />
+                <div className="w-10 h-10 bg-accent-warm/10 rounded-full flex items-center justify-center mb-5">
+                  <v.icon className="w-5 h-5 text-accent-warm" />
+                </div>
                 <h3 className="mb-3">{v.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{v.description}</p>
               </motion.div>
@@ -178,9 +231,9 @@ function Work() {
           {projects.map((p, i) => (
             <FadeIn key={p.title} delay={i * 0.08}>
               <motion.div
-                whileHover={{ y: -4, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
+                whileHover={{ y: -8, boxShadow: "0 16px 40px rgba(0,0,0,0.12)" }}
                 transition={{ duration: 0.2 }}
-                className="bg-card border border-border p-8 h-full flex flex-col"
+                className="bg-card border border-border p-8 h-full flex flex-col rounded-2xl"
               >
                 <div className="flex items-start justify-between mb-3 gap-4">
                   <h3 className="font-semibold text-lg">{p.title}</h3>
@@ -272,6 +325,70 @@ function Skills() {
   );
 }
 
+function Education() {
+  return (
+    <section className="py-32 px-6">
+      <div className="max-w-5xl mx-auto">
+        <FadeIn className="mb-16">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">Background</p>
+          <h2 className="text-3xl font-bold">Education</h2>
+        </FadeIn>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          <FadeIn>
+            <h4 className="mb-6">Degrees</h4>
+            <div className="space-y-4">
+              {degrees.map((d) => (
+                <motion.div
+                  key={d.degree}
+                  whileHover={{ y: -6, boxShadow: "0 12px 32px rgba(0,0,0,0.1)" }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-card border border-border p-6 flex items-start gap-4 cursor-default rounded-2xl"
+                >
+                  <div className="w-9 h-9 bg-muted rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    <img src={d.logo} alt={d.school} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-start mb-1">
+                      <h3 className="text-sm leading-snug max-w-[70%]">{d.degree}</h3>
+                      <span className="text-xs text-muted-foreground whitespace-nowrap">{d.years}</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mb-2">{d.school}</p>
+                    <p className="text-xs text-muted-foreground">{d.detail}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <h4 className="mb-6">Certifications</h4>
+            <div className="space-y-4">
+              {certs.map((c) => (
+                <motion.div
+                  key={c.name}
+                  whileHover={{ y: -6, boxShadow: "0 12px 32px rgba(0,0,0,0.1)" }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-card border border-border p-6 flex items-start gap-4 cursor-default rounded-2xl"
+                >
+                  <div className="w-9 h-9 bg-muted rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold text-foreground">
+                    A
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium leading-snug">{c.name}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{c.issuer}</p>
+                    <p className="text-xs text-muted-foreground">Issued {c.issued}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section id="contact" className="py-32 px-6 text-center border-t border-border">
@@ -284,7 +401,7 @@ function Contact() {
         </p>
         <a
           href="mailto:jeremiahlillion@gmail.com"
-          className="inline-block bg-primary text-primary-foreground px-8 py-3 text-sm font-medium hover:opacity-90 transition-opacity mb-16"
+          className="inline-block bg-primary text-primary-foreground px-8 py-3 text-sm font-medium rounded-full hover:opacity-90 transition-opacity mb-16"
         >
           Get In Touch
         </a>
@@ -326,6 +443,7 @@ export function Tech() {
       <About />
       <Work />
       <Skills />
+      <Education />
       <Contact />
       <Footer />
     </main>

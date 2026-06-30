@@ -1,105 +1,8 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowDown, Users, Mail, Trophy, Star, Award } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
-
-const achievements = [
-  {
-    icon: Trophy,
-    title: "NASA L'SPACE NPWEE — Spring 2024 Winner",
-    org: "NASA L'SPACE Program",
-    description:
-      "Member of 10-member team to win a national NASA proposal competition against 29 teams, securing $10,000 in seed funding for a space planning logistics software concept.",
-  },
-  {
-    icon: Star,
-    title: "Regents Scholarship — Top 2% of Transfers",
-    org: "University of California, Irvine",
-    description:
-      "Awarded UCI's most prestigious transfer scholarship, granted to the top 2% of incoming transfer students campus-wide.",
-  },
-  {
-    icon: Users,
-    title: "Commencement Speaker — Class of 2023",
-    org: "Cerro Coso Community College",
-    description:
-      "Selected by faculty to represent the graduating class of 178 students, delivering the commencement address at the 2023 ceremony.",
-  },
-  {
-    icon: Award,
-    title: "Dean's List (6×) · 4.0 GPA",
-    org: "Cerro Coso Community College",
-    description:
-      "Earned a perfect 4.0 cumulative GPA and Dean's List recognition every semester, alongside the Presidents Outstanding Academic Award and Phi Theta Kappa membership.",
-  },
-];
-
-type Degree = { degree: string; school: string; years: string; detail: string } & (
-  | { logo: string; icon?: never }
-  | { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; logo?: never }
-);
-
-const degrees: Degree[] = [
-  {
-    logo: "/logos/uci_logo.png",
-    degree: "Bachelor of Science in Computer Science",
-    school: "University of California, Irvine",
-    years: "Expected June 2026",
-    detail: "Regents Scholar · Campuswide Honors Collegium · ICS Honors · Tau Sigma · Dean's List",
-  },
-  {
-    logo: "/logos/cerrocoso_logo.png",
-    degree: "Associate of Science — Mathematics (A.S.-T)",
-    school: "Cerro Coso Community College",
-    years: "Dec 2023",
-    detail: "Cumulative GPA: 4.0/4.0 · Phi Theta Kappa · Dean's List (6×) · Commencement Speaker",
-  },
-  {
-    logo: "/logos/cerrocoso_logo.png",
-    degree: "Associate of Arts — Liberal Arts: Math & Science",
-    school: "Cerro Coso Community College",
-    years: "Dec 2023",
-    detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
-  },
-  {
-    logo: "/logos/cerrocoso_logo.png",
-    degree: "Associate of Arts — Liberal Arts: Social Science",
-    school: "Cerro Coso Community College",
-    years: "Dec 2023",
-    detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
-  },
-  {
-    logo: "/logos/cerrocoso_logo.png",
-    degree: "Associate of Arts — Liberal Arts: Arts & Humanities",
-    school: "Cerro Coso Community College",
-    years: "Dec 2023",
-    detail: "President's & Ann Ruff Memorial Scholarship · Presidents Outstanding Academic Award",
-  },
-];
-
-const certs = [
-  {
-    name: "Introduction to Model Context Protocol",
-    issuer: "Anthropic",
-    issued: "Mar 2026",
-    credentialId: "b2cw5chqmj9y",
-    href: "#",
-    logo: (
-      <span className="font-bold text-sm text-foreground">A\</span>
-    ),
-  },
-  {
-    name: "Claude Code in Action",
-    issuer: "Anthropic",
-    issued: "Mar 2026",
-    credentialId: "5rj845enb3rs",
-    href: "#",
-    logo: (
-      <span className="font-bold text-sm text-foreground">A\</span>
-    ),
-  },
-];
 
 const socials = [
   {
@@ -174,23 +77,23 @@ function Hero() {
               Incoming Solutions Engineer @ Capital Group
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="mb-6">
             Engineering solutions. <br className="hidden md:block"/>
-            Sharing my story. <br className="hidden md:block"/> 
+            <span className="underline-warm">Sharing</span> my story.
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-md">
             Writing <i>An Educated Guess</i> while working as a Solutions Engineer at Capital Group. Redefining the path of no education to the corporate world.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap">
             <button
               onClick={() => document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
+              className="bg-primary text-primary-foreground px-7 py-3 text-sm font-medium rounded-full hover:opacity-90 transition-opacity"
             >
               The Book
             </button>
             <a
-              href="/tech" /* Points to your new page */
-              className="border border-border px-6 py-3 text-sm font-medium hover:bg-muted transition-colors flex items-center gap-2"
+              href="/tech"
+              className="border border-border px-7 py-3 text-sm font-medium rounded-full hover:bg-muted transition-colors flex items-center gap-2"
             >
               Tech Portfolio
             </a>
@@ -204,14 +107,14 @@ function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative aspect-[4/5] md:aspect-square w-full max-w-md mx-auto"
         >
-          <div className="w-full h-full bg-muted border border-border overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+          <div className="w-full h-full bg-muted border border-border overflow-hidden rounded-2xl grayscale hover:grayscale-0 transition-all duration-700">
             <img 
               src="/capital_group.jpg" 
               alt="Jeremiah at Capital Group" 
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-6 -left-6 bg-card border border-border p-4 shadow-lg">
+          <div className="absolute -bottom-6 -left-6 bg-card border border-border p-4 shadow-lg rounded-2xl">
             <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Focus</p>
             <p className="text-sm font-medium mt-1">"Keep Going"</p>
           </div>
@@ -252,14 +155,19 @@ function Book() {
             <img
               src="/book_cover.jpg"
               alt="An Educated Guess Book Cover"
-              className="relative w-full border border-border shadow-2xl rounded-sm"
+              className="relative w-full border border-border shadow-2xl rounded-2xl"
             />
           </div>
 
           {/* Right: The Pitch & Movement */}
           <div>
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">The Movement</p>
-            <h2 className="text-3xl font-bold mb-6">Redefining the blueprint.</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              <span className="underline-warm">Redefining</span> the blueprint.
+            </h2>
+            <p className="font-serif italic text-xl text-foreground/70 leading-relaxed mb-6">
+              "From no education to UCI and Capital Group — the long way around."
+            </p>
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
               <p>
                 <i>An Educated Guess</i> is my story of starting from zero. It is a raw look at surviving abuse and a lack of early education, to eventually earning a degree from UCI and landing at Capital Group.
@@ -284,7 +192,7 @@ function Book() {
                   method="post"
                   target="mailchimp-hidden"
                   onSubmit={handleSubmit}
-                  className="flex"
+                  className="flex rounded-full border border-border overflow-hidden"
                 >
                   <input
                     type="email"
@@ -293,7 +201,7 @@ function Book() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
-                    className="flex-1 bg-background border border-border px-4 py-3 text-sm outline-none focus:border-foreground transition-colors placeholder:text-muted-foreground"
+                    className="flex-1 bg-background px-4 py-3 text-sm outline-none placeholder:text-muted-foreground"
                   />
                   {/* Mailchimp honeypot — required for spam prevention, do not remove */}
                   <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
@@ -302,7 +210,7 @@ function Book() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-60"
+                    className="bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-60 rounded-r-full"
                   >
                     {status === "submitting" ? "..." : "Notify Me"}
                   </button>
@@ -333,7 +241,7 @@ function Speech() {
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <div className="relative w-full max-w-4xl mx-auto aspect-video bg-card border border-border p-2 shadow-xl">
+          <div className="relative w-full max-w-4xl mx-auto aspect-video bg-card border border-border p-2 shadow-xl rounded-2xl overflow-hidden">
             <iframe 
               className="w-full h-full border-0"
               src="https://www.youtube.com/embed/vAJ-87hdGFQ?start=3287" 
@@ -354,115 +262,6 @@ function Speech() {
   );
 }
 
-function Education() {
-  return (
-    <section className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <FadeIn className="text-center mb-16">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">Education</p>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            Academic foundation and professional certifications that shape my expertise.
-          </p>
-        </FadeIn>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Degrees */}
-          <FadeIn>
-            <h4 className="mb-6">Degrees</h4>
-            <div className="space-y-4">
-              {degrees.map((d) => (
-                <motion.div
-                  key={d.degree}
-                  whileHover={{ y: -3, boxShadow: "0 6px 20px rgba(0,0,0,0.07)" }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-card border border-border p-6 flex items-start gap-4 cursor-default"
-                >
-                  <div className="w-9 h-9 bg-muted rounded flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    {"logo" in d ? (
-                      <img src={d.logo} alt={d.school} className="w-full h-full object-cover" />
-                    ) : (
-                      <d.icon className="w-4 h-4 text-muted-foreground" />
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-sm leading-snug max-w-[70%]">{d.degree}</h3>
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">{d.years}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mb-2">{d.school}</p>
-                    <p className="text-xs text-muted-foreground">{d.detail}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* Certifications */}
-          <FadeIn delay={0.1}>
-            <h4 className="mb-6">Certifications</h4>
-            <div className="space-y-4">
-              {certs.map((c) => (
-                <motion.div
-                  key={c.name}
-                  whileHover={{ y: -3, boxShadow: "0 6px 20px rgba(0,0,0,0.07)" }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-card border border-border p-6 flex items-start gap-4 cursor-default"
-                >
-                  <div className="w-9 h-9 bg-muted rounded flex items-center justify-center flex-shrink-0">
-                    {c.logo}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium leading-snug">{c.name}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{c.issuer}</p>
-                    <p className="text-xs text-muted-foreground">Issued {c.issued}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Achievements() {
-  return (
-    <section className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <FadeIn className="text-center mb-16">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">
-            Achievements
-          </p>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            Highlights from competitions, open source, and academic work.
-          </p>
-        </FadeIn>
-
-        <div className="grid md:grid-cols-2 gap-6 auto-rows-fr">
-          {achievements.map((a, i) => (
-            <FadeIn key={a.title} delay={i * 0.08} className="h-full">
-              <motion.div
-                whileHover={{ y: -4, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
-                transition={{ duration: 0.2 }}
-                className="bg-card border border-border p-8 flex items-start gap-5 cursor-default h-full"
-              >
-                <div className="w-10 h-10 bg-muted rounded flex items-center justify-center flex-shrink-0">
-                  <a.icon className="w-4 h-4 text-muted-foreground" />
-                </div>
-                <div>
-                  <h3 className="mb-1">{a.title}</h3>
-                  <p className="text-xs text-muted-foreground mb-3">{a.org}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{a.description}</p>
-                </div>
-              </motion.div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Contact() {
   return (
@@ -477,7 +276,7 @@ function Contact() {
         </p>
         <a
           href="mailto:jeremiahlillion@gmail.com"
-          className="inline-block bg-primary text-primary-foreground px-8 py-3 text-sm font-medium hover:opacity-90 transition-opacity mb-16"
+          className="inline-block bg-primary text-primary-foreground px-8 py-3 text-sm font-medium rounded-full hover:opacity-90 transition-opacity mb-16"
         >
           Get In Touch
         </a>
@@ -518,8 +317,6 @@ export function Home() {
       <Hero />
       <Book />
       <Speech />
-      <Education />
-      <Achievements />
       <Contact />
       <Footer />
     </main>

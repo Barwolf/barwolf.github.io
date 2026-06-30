@@ -38,10 +38,10 @@ export function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
         {/* Logo */}
-        <Link 
-          to="/" 
-          onClick={() => setIsOpen(false)} 
-          className="text-sm font-bold tracking-wide text-foreground uppercase"
+        <Link
+          to="/"
+          onClick={() => setIsOpen(false)}
+          className="font-serif italic text-base text-foreground hover:opacity-70 transition-opacity"
         >
           Jeremiah Lillion
         </Link>
