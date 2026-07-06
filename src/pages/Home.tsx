@@ -74,7 +74,7 @@ function Hero() {
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="px-3 py-1 bg-muted text-xs font-medium tracking-widest uppercase rounded-full">
-              Incoming Solutions Engineer @ Capital Group
+              Author | Solutions Engineer 
             </span>
           </div>
           <h1 className="mb-6">
@@ -163,17 +163,17 @@ function Book() {
           <div>
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">The Movement</p>
             <h2 className="text-3xl font-bold mb-4">
-              <span className="underline-warm">Redefining</span> the blueprint.
+              The <span className="underline-warm">self-taught</span> syllabus.
             </h2>
             <p className="font-serif italic text-xl text-foreground/70 leading-relaxed mb-6">
-              "From no education to UCI and Capital Group — the long way around."
+              "From no education to a <strong>top 10 public university</strong> — the long way around."
             </p>
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
               <p>
-                <i>An Educated Guess</i> is my story of starting from zero. It is a raw look at surviving abuse and a lack of early education, to eventually earning a degree from UCI and landing at Capital Group.
+                <i>An Educated Guess</i> is my story of starting from zero. It is a raw look at surviving abuse and a lack of early education, to eventually earning a degree from UCI and landing a job as a solutions engineer.
               </p>
               <p>
-                It dismantles the "traditional path" entirely, exploring the mechanics of resilience and what it takes to engineer a future from scratch.
+                It dismantles the "traditional path" entirely, exploring the mechanics of resilience and what it takes to build a future from scratch.
               </p>
             </div>
 
